@@ -1,31 +1,31 @@
-/*****************************************************************************************************************
-Q1.Write a pthread application where main task terminated but pending pthreads task still execute.
-*****************************************************************************************************************/
+// Q1.Write a pthread application where main task terminated but pending pthreads task still execute.
+
 
 #include<stdio.h>
 #include<pthread.h>
 
-void *f_th_fun(void *arg)
+void *thd_task()			//defination of thread task function
 {
 
-	for(int i=1; i<=10; i++)
+	for(int i=0; i<10; i++)
 	{
-		printf("Thread function exicution : %d\n",i);
+		printf("Executing Thread function : %d\n",i+1);
 	}
 
-	printf("Exiting thread\n");
+	printf("Exiting from thread\n");
 }
 
 int main()
 {
-	pthread_t f_t_id;//generating Thread Id
+	pthread_t my_thd_id;
 	
-	pthread_create(&f_t_id, NULL, f_th_fun, NULL); //pthread_create arguments 
+	pthread_create(&my_thd_id, NULL, thd_task, NULL); 	//create pthread and assign task 
 
-	pthread_join(f_t_id, NULL);//for joining pthread
+	pthread_join(my_thd_id, NULL);				//for executing thread before parent process
 
-	pthread_exit(NULL); //for exiting the pthread 
-	printf("Main thread terminated\n");
+	pthread_exit(NULL); 					//for exiting the pthread 
+	
+	printf("Executing Main Now\n");
 
 	return 0;
 }
