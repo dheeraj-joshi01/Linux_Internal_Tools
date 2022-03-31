@@ -27,7 +27,7 @@ int main()
 	pthread_t new_tid;
 
 	emp1.eID = 150;
-	strcpy(emp1.name, "Kartik Kumar");
+	strcpy(emp1.name, "Naman Patel");
 	emp1.salary = 75000;
 
 	pthread_create(&new_tid, NULL, thd_task, &emp1);
