@@ -20,7 +20,7 @@ void *thd_task_1(void *args)				//defining thread 1 task
 	
 	printf("Starting countdown sequence from 20....\n");
 	
-	for(int i=20; i>0; i++)
+	for(int i=20; i>0; i--)
 		printf("%d\n",i);
 
 	/** Critical section ends **/
@@ -46,7 +46,7 @@ void *thd_task_2(void *args)				//defining thread 2 task
 	
 	printf("Starting countdown sequence from 10....\n");
 	
-	for(int i=10; i>0; i++)
+	for(int i=10; i>0; i--)
 		printf("%d\n",i);
 
 	/** Critical section ends **/
